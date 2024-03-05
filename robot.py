@@ -8,6 +8,15 @@ def move_forward(x, y, direction):
     dx, dy = move[direction]
     return x + dx, y + dy, direction
 
+def rotate_clockwise(direction):
+    rotate = {
+        'N': 'E',
+        'E': 'S',
+        'S': 'W',
+        'W': 'N'
+    }
+    return rotate[direction]
+
 if __name__ == "__main__":
     x = int(input("Enter initial X coordinate: "))
     y = int(input("Enter initial Y coordinate: "))
@@ -16,5 +25,5 @@ if __name__ == "__main__":
    
     actions = {
         'F': move_forward,
-        
+        'R': lambda x, y, d: (x, y, rotate_clockwise(d))
     }
