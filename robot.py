@@ -27,3 +27,6 @@ if __name__ == "__main__":
         'F': move_forward,
         'R': lambda x, y, d: (x, y, rotate_clockwise(d))
     }
+    for cmd in commands:
+        x, y, direction = actions.get(cmd, lambda x, y, d: (x, y, d))(x, y, direction)
+    print(f"Final Position: ({x}, {y}), Direction: {direction}")
